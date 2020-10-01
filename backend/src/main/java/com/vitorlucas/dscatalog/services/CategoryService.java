@@ -1,6 +1,7 @@
 package com.vitorlucas.dscatalog.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vitorlucas.dscatalog.dto.CategoryDTO;
 import com.vitorlucas.dscatalog.entities.Category;
 import com.vitorlucas.dscatalog.repositories.CategoryRepository;
+import com.vitorlucas.dscatalog.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -27,7 +29,13 @@ public class CategoryService {
 			listDTO.add(new CategoryDTO(cat));
 		}
 		return listDTO;
-*/
-		
+*/	
 	}
+	
+	@Transactional(readOnly = true)
+	public CategoryDTO findById(Long id) {
+		Optional<Category> obj = repositoy.findById(id);
+		Category cat = obj.orElseThrow(() -> new EntityNotFoundException("Category not Found"));
+		return new CategoryDTO(cat);
+	} 
 }
