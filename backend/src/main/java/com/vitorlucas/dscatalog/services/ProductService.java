@@ -12,8 +12,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.vitorlucas.dscatalog.dto.CategoryDTO;
 import com.vitorlucas.dscatalog.dto.ProductDTO;
+import com.vitorlucas.dscatalog.entities.Category;
 import com.vitorlucas.dscatalog.entities.Product;
+import com.vitorlucas.dscatalog.repositories.CategoryRepository;
 import com.vitorlucas.dscatalog.repositories.ProductRepository;
 import com.vitorlucas.dscatalog.services.exceptions.DatabaseException;
 import com.vitorlucas.dscatalog.services.exceptions.ResourceNotFoundException;
@@ -23,16 +26,14 @@ public class ProductService {
 
 	@Autowired
 	private ProductRepository repositoy;
+	
+	@Autowired
+	private CategoryRepository categoryRepositoy;
 
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
 		Page<Product> list = repositoy.findAll(pageRequest);
 		return list.map(x -> new ProductDTO(x));
-
-		/*
-		 * List<ProductDTO> listDTO = new ArrayList<>(); for (Product cat : list) {
-		 * listDTO.add(new ProductDTO(cat)); } return listDTO;
-		 */
 	}
 
 	@Transactional(readOnly = true)
@@ -43,18 +44,18 @@ public class ProductService {
 	}
 
 	@Transactional
-	public ProductDTO insert(ProductDTO catDTO) {
+	public ProductDTO insert(ProductDTO dto) {
 		Product entity = new Product();
-		//entity.setName(catDTO.getName());
+		copyDtoToEntity(dto, entity);
 		entity = repositoy.save(entity);
 		return new ProductDTO(entity);
 	}
 
 	@Transactional
-	public ProductDTO update(Long id, ProductDTO catDTO) {
+	public ProductDTO update(Long id, ProductDTO dto) {
 		try {
 			Product entity = repositoy.getOne(id);
-			//entity.setName(catDTO.getName());
+			copyDtoToEntity(dto, entity);
 			entity = repositoy.save(entity);
 			return new ProductDTO(entity);
 		} catch (EntityNotFoundException e) {
@@ -69,6 +70,19 @@ public class ProductService {
 			throw new ResourceNotFoundException("Id not found :" + id);
 		}catch(DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity violation");
+		}
+	}
+	
+	private void copyDtoToEntity(ProductDTO dto, Product entity) {
+		entity.setName(dto.getName());
+		entity.setPrice(dto.getPrice());
+		entity.setDescription(dto.getDescription());
+		entity.setImgUrl(dto.getImgUrl());
+		entity.setDate(dto.getDate());
+		
+		for (CategoryDTO catDTO : dto.getCategories()) {
+			Category cat = categoryRepositoy.getOne(catDTO.getId());
+			entity.getCategories().add(cat);
 		}
 		
 	}
