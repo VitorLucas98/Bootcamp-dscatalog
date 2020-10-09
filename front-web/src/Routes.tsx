@@ -3,19 +3,23 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './core/components/NavBar';
 import Admin from './core/pages/Admin';
 import Catalog from './core/pages/Catalog';
+import ProductDetails from './core/pages/Catalog/components/ProductDetails';
 import Home from './core/pages/Home';
 
 const Routes = () => (
     <BrowserRouter>
-    <Navbar/>
+        <Navbar />
         <Switch>
-            <Route path ='/' exact>
+            <Route path='/' exact>
                 <Home />
             </Route>
-            <Route path ='/catalog'>
+            <Route path='/products' exact>
                 <Catalog />
             </Route>
-            <Route path ='/admin'>
+            <Route path='/products/:productId'>
+                <ProductDetails/>
+            </Route>
+            <Route path='/admin'>
                 <Admin />
             </Route>
         </Switch>
