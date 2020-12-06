@@ -15,6 +15,11 @@ const Card = () => {
                 <div className='col-7 py-3'>
                     <h3 className='product-card-name-admin'>Computador Desktop - Intel Core i7</h3>
                     <ProductPrice price={4000} />
+                    <div className=''>
+                    <span className="badge badge-pill badge-secondary mr-2">Categoria 1</span>
+                    <span className="badge badge-pill badge-secondary mr-2">Categoria 2</span>
+                    <span className="badge badge-pill badge-secondary mr-2">Categoria 3</span>
+                    </div>
                 </div>
                 <div className='col-3 pt-3 pr-5'>
                     <button
