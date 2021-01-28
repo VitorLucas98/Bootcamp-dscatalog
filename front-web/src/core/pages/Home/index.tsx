@@ -17,7 +17,7 @@ const Home = () => (
                 </Link>
             </div>
             <div className="col-06">
-                <MainImage className='main-image' />
+                <MainImage className='main-image' data-testid='main-image' />
             </div>
         </div>
     </div>
