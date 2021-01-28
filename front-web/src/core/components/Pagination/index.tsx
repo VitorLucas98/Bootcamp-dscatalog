@@ -17,7 +17,8 @@ const Pagination = ({ totalPages, activePage, onChange }: Props) => {
     return (
         <div className='pagination-container'>
             <ArrowIcon className={`pagination-previous ${previousClass}`}
-            onClick ={() =>onChange(activePage-1)} />
+            onClick ={() =>onChange(activePage-1)} 
+            data-testid='arrow-icon-previous'/>
             {items.map(item => (
                 <div 
                     key={item}
@@ -28,7 +29,8 @@ const Pagination = ({ totalPages, activePage, onChange }: Props) => {
                 </div>
             ))}
             <ArrowIcon className={`pagination-next ${nextClass}`}
-            onClick ={() =>onChange(activePage+1)} />
+            onClick ={() =>onChange(activePage+1)} 
+            data-testid='arrow-icon-next'/>
         </div>
     );
 }
