@@ -18,7 +18,7 @@ const server = setupServer(
   afterEach(() => server.resetHandlers())
   afterAll(() => server.close())
 
-test('should render ProductCard', async () =>{
+test('should render Catalog', async () =>{
     render(
         <Router history={history}>
             <Catalog/>

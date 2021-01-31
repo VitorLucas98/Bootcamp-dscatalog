@@ -1,0 +1,65 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Vitor Lucas\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'view',
+1 verbose cli   '--json',
+1 verbose cli   'react-select-event',
+1 verbose cli   'description',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   'homepage',
+1 verbose cli   'version'
+1 verbose cli ]
+2 info using npm@6.14.11
+3 info using node@v14.15.4
+4 verbose stack Error: EPERM: operation not permitted, rename 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json.3010491091' -> 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json'
+4 verbose stack     at Object.renameSync (fs.js:772:3)
+4 verbose stack     at Function.writeFileSync [as sync] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\write-file-atomic\index.js:224:8)
+4 verbose stack     at Configstore.set all [as all] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:58:20)
+4 verbose stack     at Configstore.delete (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:98:12)
+4 verbose stack     at UpdateNotifier.check (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:87:22)
+4 verbose stack     at module.exports (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:151:17)
+4 verbose stack     at EventEmitter.<anonymous> (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js:87:48)
+4 verbose stack     at processTicksAndRejections (internal/process/task_queues.js:75:11)
+5 verbose cwd c:\Users\Vitor Lucas\Desktop\Projetos Spring\Bootcamp\dscatalog\front-web
+6 verbose Windows_NT 10.0.18363
+7 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Vitor Lucas\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "view" "--json" "react-select-event" "description" "dist-tags.latest" "homepage" "version"
+8 verbose node v14.15.4
+9 verbose npm  v6.14.11
+10 error code EPERM
+11 error syscall rename
+12 error path C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json.3010491091
+13 error dest C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json
+14 error errno -4048
+15 error Error: EPERM: operation not permitted, rename 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json.3010491091' -> 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json'
+15 error     at Object.renameSync (fs.js:772:3)
+15 error     at Function.writeFileSync [as sync] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\write-file-atomic\index.js:224:8)
+15 error     at Configstore.set all [as all] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:58:20)
+15 error     at Configstore.delete (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:98:12)
+15 error     at UpdateNotifier.check (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:87:22)
+15 error     at module.exports (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:151:17)
+15 error     at EventEmitter.<anonymous> (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js:87:48)
+15 error     at processTicksAndRejections (internal/process/task_queues.js:75:11)
+15 error  Error: EPERM: operation not permitted, rename 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json.3010491091' -> 'C:\Users\Vitor Lucas\.config\configstore\update-notifier-npm.json'
+15 error     at Object.renameSync (fs.js:772:3)
+15 error     at Function.writeFileSync [as sync] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\write-file-atomic\index.js:224:8)
+15 error     at Configstore.set all [as all] (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:58:20)
+15 error     at Configstore.delete (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\configstore\index.js:98:12)
+15 error     at UpdateNotifier.check (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:87:22)
+15 error     at module.exports (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\node_modules\update-notifier\index.js:151:17)
+15 error     at EventEmitter.<anonymous> (C:\Users\Vitor Lucas\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js:87:48)
+15 error     at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+15 error   errno: -4048,
+15 error   syscall: 'rename',
+15 error   code: 'EPERM',
+15 error   path: 'C:\\Users\\Vitor Lucas\\.config\\configstore\\update-notifier-npm.json.3010491091',
+15 error   dest: 'C:\\Users\\Vitor Lucas\\.config\\configstore\\update-notifier-npm.json'
+15 error }
+16 error The operation was rejected by your operating system.
+16 error It's possible that the file was already in use (by a text editor or antivirus),
+16 error or that you lack permissions to access it.
+16 error
+16 error If you believe this might be a permissions issue, please double-check the
+16 error permissions of the file and its containing directories, or try running
+16 error the command again as root/Administrator.
+17 verbose exit [ -4048, true ]

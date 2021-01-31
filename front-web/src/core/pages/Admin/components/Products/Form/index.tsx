@@ -72,6 +72,7 @@ const Form = () => {
                                 type='text'
                                 className='form-control  input-base'
                                 placeholder='Nome do Produto'
+                                data-testid='name'
                                 ref={register({
                                     required: "Campo obrigatório",
                                     minLength: { value: 5, message: 'O campo deve ter no mínimo 5 caracteres' },
@@ -83,6 +84,7 @@ const Form = () => {
                                 </div>)}
                         </div>
                         <div className="margin-bottom-30">
+                            <label htmlFor='categories' className='d-none'>Categorias</label>
                             <Controller
                                 as={Select}
                                 name='categories'
@@ -95,6 +97,8 @@ const Form = () => {
                                 classNamePrefix='categories-select'
                                 isMulti
                                 placeholder='Categorias'
+                                inputId='categories'
+                                defaultValue=''
                             />
                              {errors.categories && (
                                 <div className="invalid-feedback d-block">
@@ -108,6 +112,7 @@ const Form = () => {
                                 type='number'
                                 className='form-control input-base'
                                 placeholder="Preço"
+                                data-testid='price'
                                 ref={register({ required: "Campo obrigatório" })} />
                             {errors.price && (
                                 <div className="invalid-feedback d-block">
@@ -121,6 +126,7 @@ const Form = () => {
                                 type='text'
                                 className='form-control  input-base'
                                 placeholder='Imagem do Produto'
+                                data-testid='imgUrl'
                                 ref={register({ required: "Campo obrigatório" })} />
                             {errors.imgUrl && (
                                 <div className="invalid-feedback d-block">
@@ -133,6 +139,7 @@ const Form = () => {
                             name='description'
                             className='form-control input-base'
                             placeholder='Descrição'
+                            data-testid='description'
                             cols={30}
                             rows={10}
                             ref={register({ required: "Campo obrigatório" })} />
